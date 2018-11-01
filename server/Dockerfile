@@ -1,5 +1,5 @@
 #Create Server image
-FROM node:8
+FROM node:10.12
 
 #Create app directory
 WORKDIR /usr/src/app
@@ -13,6 +13,6 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 8080
+EXPOSE 8000
 
 CMD ["npm", "start]

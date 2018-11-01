@@ -29,6 +29,7 @@ module.exports = {
   ],
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
+    host: '0.0.0.0',//To run with Docker
     compress: true,
     port: 3000
   }

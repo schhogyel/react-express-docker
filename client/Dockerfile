@@ -4,10 +4,8 @@ FROM node:8
 #Create app directory
 WORKDIR /usr/src/app
 
-RUN mkdir client
-
 #Install app dependencies
-COPY ./client/package*.json ./client/
+COPY ./package*.json ./
 
 RUN npm install
 
@@ -15,6 +13,6 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 8080
+EXPOSE 3000
 
 CMD ["npm", "start"]

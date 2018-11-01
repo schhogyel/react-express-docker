@@ -5,7 +5,7 @@ services:
     ports:
       - 8000:8000
     volumes:
-      - ./server:/usr/app/server
+      - ./server:/usr/src/app
     command: npm start
   
   client:
@@ -14,6 +14,7 @@ services:
       - 3000:3000
     volumes:
       - ./client:/usr/src/app
+      - '/usr/src/app/node_modules'
     links:
       - server
     depends_on:

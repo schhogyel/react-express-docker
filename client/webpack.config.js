@@ -1,5 +1,6 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-var path = require('path');
+const webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
   module: {
@@ -25,12 +26,18 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: "./src/index.html",
       filename: "./index.html"
-    })
+    }),
+    new webpack.HotModuleReplacementPlugin()
   ],
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
+    hot: true,
     host: '0.0.0.0',//To run with Docker
     compress: true,
-    port: 3000
+    port: 3000,
+    watchOptions: {
+      aggregateTimeout: 300,
+      poll: 1000
+    }
   }
 };
